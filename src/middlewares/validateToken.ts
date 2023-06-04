@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 import { ObjectSchema } from 'joi'
 
-export function validateSchema(schema: ObjectSchema) {
+export function validateToken(schema: ObjectSchema) {
 	return (req: Request, res: Response, next: NextFunction) => {
 		const { error } = schema.validate(req.body)
 		if (error) {

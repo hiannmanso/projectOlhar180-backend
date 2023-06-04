@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "tasks" ALTER COLUMN "finalDate" SET DATA TYPE TEXT,
+ALTER COLUMN "status" DROP NOT NULL,
+ALTER COLUMN "status" SET DEFAULT 'pendente';

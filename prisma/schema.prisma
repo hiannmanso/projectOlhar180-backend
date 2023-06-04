@@ -1,5 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
@@ -10,17 +8,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 model Task {
-  id        Int     @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   describe  String
-  finalDate DateTime
-  priority  Priority // Restrito aos valores 'alta', 'media' ou 'baixa'
+  status    Status?   @default(pendente)
+  finalDate String
+  priority  Priority  // Restrito aos valores 'alta', 'media' ou 'baixa'
+  accountId Int       @map("account_id")
+  account   accounts  @relation(fields: [accountId], references: [id])
 
   @@map(name: "tasks")
 }
 
+model accounts {
+  id       Int    @id @default(autoincrement()) @map("accounts_pk")
+  username String
+  email    String @unique
+  password String
+  tasks    Task[]
+
+  @@map(name: "accounts")
+}
+
 enum Priority {
-  ALTA
-  MEDIA
-  BAIXA
+  alta
+  media
+  baixa
+}
+enum Status { 
+  feito
+  pendente
 }
