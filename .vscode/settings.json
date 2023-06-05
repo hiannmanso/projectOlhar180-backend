@@ -1,0 +1,5 @@
+{
+    "prettier.enable": true,
+    "prettier.useTabs": true,
+    "vs-code-prettier-eslint.prettierLast": true
+}
