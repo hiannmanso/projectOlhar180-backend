@@ -13,9 +13,7 @@ async function insert(
 async function getByEmail(email: string) {
 	return prisma.accounts.findUnique({ where: { email } })
 }
-async function getByUsername(username: string) {
-	return prisma.accounts.findUnique({ where: { username } })
-}
+
 async function getByUserId(userId: number) {
 	return prisma.accounts.findUnique({ where: { id: userId } })
 }
@@ -36,7 +34,7 @@ async function getAll() {
 const authRepository = {
 	insert,
 	getByEmail,
-	getByUsername,
+
 	getByUserId,
 	getAll,
 }
