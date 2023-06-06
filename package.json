@@ -5,7 +5,7 @@
   "main": "./server.js",
   "type": "module",
   "scripts": {
-    "build": "tsup src --outDir build",
+    "build": "tsup src --outDir src/build",
     "start": "node build/server.js",
     "dev": "tsx watch src/server.ts"
   },
