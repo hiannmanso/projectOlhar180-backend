@@ -8,14 +8,14 @@ datasource db {
 }
 
 model Task {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  finalDate   String
-  priority    Priority
-  status      Status?  @default(pendente)
-  accountId   Int      @map("account_id")
-  account     accounts @relation(fields: [accountId], references: [id])
+  id        Int      @id @default(autoincrement())
+  title     String
+  describe  String
+  finalDate String
+  priority  Priority
+  status    Status?  @default(pendente)
+  accountId Int      @map("account_id")
+  account   accounts @relation(fields: [accountId], references: [id])
 
   @@map("tasks")
 }
