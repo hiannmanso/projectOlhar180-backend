@@ -6,14 +6,14 @@ import { User } from '../interfaces/auth.interface'
 export async function signUp(
 	data:User
 ) {
-	const checkEmailIsValid = await authRepository.getByEmail(data.email)
-	console.log(data)
-	if (checkEmailIsValid) {
-		throw {
-			status: 401,
-			message: `This email is already in use.`,
-		}
-	}
+	// const checkEmailIsValid = await authRepository.getByEmail(data.email)
+	// console.log(data)
+	// if (checkEmailIsValid) {
+	// 	throw {
+	// 		status: 401,
+	// 		message: `This email is already in use.`,
+	// 	}
+	// }
 
 	await authRepository.insert(
 		data.email,
