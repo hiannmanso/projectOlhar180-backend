@@ -2,7 +2,7 @@
 export interface Tasks{
     id?:number,
     title:string,
-    describe:string,
+    description:string,
     finalDate:string,
     priority:Priority
     status?:Status

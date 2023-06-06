@@ -9,7 +9,7 @@ async function insertNewTask(data:Tasks,token:string) {
 
     const haveThisTask = await taskRepository.getTasksByTitle(data.title)
     for (const item of haveThisTask) {
-        if(item.describe === data.describe && item.finalDate=== data.finalDate && item.priority === data.priority){
+        if(item.description === data.description && item.finalDate=== data.finalDate && item.priority === data.priority){
             throw {
                 	status: 404,
                 	message: `This task already exist.`,

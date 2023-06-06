@@ -14,7 +14,7 @@ DROP TABLE "User";
 CREATE TABLE "tasks" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
-    "describe" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
     "finalDate" TIMESTAMP(3) NOT NULL,
     "priority" "Priority" NOT NULL,
 

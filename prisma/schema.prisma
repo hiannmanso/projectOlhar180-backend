@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,17 +6,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-model Task {
-  id        Int       @id @default(autoincrement())
-  title     String
-  describe  String
-  status    Status?   @default(pendente)
-  finalDate String
-  priority  Priority  // Restrito aos valores 'alta', 'media' ou 'baixa'
-  accountId Int       @map("account_id")
-  account   accounts  @relation(fields: [accountId], references: [id])
 
-  @@map(name: "tasks")
+model Task {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  finalDate   String
+  priority    Priority
+  status      Status?  @default(pendente)
+  accountId   Int      @map("account_id")
+  account     accounts @relation(fields: [accountId], references: [id])
+
+  @@map("tasks")
 }
 
 model accounts {
@@ -27,7 +27,7 @@ model accounts {
   password String
   tasks    Task[]
 
-  @@map(name: "accounts")
+  @@map("accounts")
 }
 
 enum Priority {
@@ -35,7 +35,8 @@ enum Priority {
   media
   baixa
 }
-enum Status { 
+
+enum Status {
   feito
   pendente
 }
