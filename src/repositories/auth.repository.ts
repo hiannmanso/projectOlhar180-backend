@@ -5,9 +5,11 @@ async function insert(
 	password: string,
 	username: string,
 ) {
-	return prisma.accounts.create({
+	const result=  await prisma.accounts.create({
 		data: { email, password, username },
 	})
+	console.log(result)
+	return result
 }
 
 async function getByEmail(email: string) {
