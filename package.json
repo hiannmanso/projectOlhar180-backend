@@ -1,11 +1,10 @@
 {
-  "name": "project",
+  "name": "api",
   "version": "1.0.0",
   "description": "",
   "main": "./server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src --outDir build --format esm",
     "start": "node ./build/server.js",
     "dev": "tsx watch src/server.ts"
