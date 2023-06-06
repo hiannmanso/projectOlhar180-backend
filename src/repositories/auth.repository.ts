@@ -11,7 +11,7 @@ async function insert(
 }
 
 async function getByEmail(email: string) {
-	return prisma.accounts.findUnique({ where: { email } })
+	return prisma.accounts.findMany({ where: { email } })
 }
 
 async function getByUserId(userId: number) {
