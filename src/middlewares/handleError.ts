@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from 'express'
 
-export function handdleError(
+export function handleError(
 	error,
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) {
 	console.log(error)
-	if (error) {
+	if (error.status && error.message) {
 		return res.status(error.status).send(error.message)
 	}
 	res.status(500)
