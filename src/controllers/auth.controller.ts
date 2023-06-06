@@ -5,16 +5,13 @@ import { signIN, signUp} from '../services/auth.service'
 
 export async function signUpPOST(req: Request, res: Response) {
 	const data: User = req.body
-	console.log(data)
-
 	await signUp(data)
 	res.status(201).send(`Your account have been created!`)
 }
 
 export async function signInGET(req: Request, res: Response) {
 	const { email, password }: {email:string,password:string} = req.body
-	console.log(email,password)
-	console.log(req.body)
+
 	const token = await signIN(email, password)
 	res.status(200).send({token})
 }

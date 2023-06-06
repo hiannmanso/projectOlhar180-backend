@@ -12,7 +12,7 @@ export async function tasksPOST(req:Request,res:Response) {
 export async function tasksGET(req:Request,res:Response) {
     const { authorization } = req.headers
     const result = await taskService.getAllTasks(authorization)
-    console.log(result)
+
     res.status(200).send(result)
 }
 export async function tasksSingleGET(req:Request,res:Response) {
