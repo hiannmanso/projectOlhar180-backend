@@ -2,7 +2,8 @@
   "name": "project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src --outDir build --format esm",
@@ -33,6 +34,7 @@
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "joi": "^17.9.2",
-    "jsonwebtoken": "^9.0.0"
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.11.0"
   }
 }
