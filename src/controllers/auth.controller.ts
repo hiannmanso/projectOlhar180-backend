@@ -5,6 +5,7 @@ import { signIN, signUp} from '../services/auth.service'
 
 export async function signUpPOST(req: Request, res: Response) {
 	const data: User = req.body
+	console.log(data,'DATAAAAAAAAAAA')
 	await signUp(data)
 	res.status(201).send(`Your account have been created!`)
 }
