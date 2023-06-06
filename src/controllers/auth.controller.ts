@@ -13,8 +13,9 @@ export async function signUpPOST(req: Request, res: Response) {
 
 export async function signInGET(req: Request, res: Response) {
 	const { email, password }: {email:string,password:string} = req.body
+	console.log(email,password)
+	console.log(req.body)
 	const token = await signIN(email, password)
-
 	res.status(200).send({token})
 }
 

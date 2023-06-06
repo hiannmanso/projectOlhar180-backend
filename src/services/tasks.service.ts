@@ -36,9 +36,9 @@ async function getAllTasks(token:string) {
 async function getByTaskId(id:number,token:string) {
    
     const infosToken = decodeToken(token)
-    console.log(infosToken)
+
     const result = await taskRepository.getById(id)
-    if(result){
+    if(!result){
         throw {
             status: 404,
 			message: `Erro on load this task, please try again.`,

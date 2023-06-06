@@ -18,6 +18,7 @@ export async function tasksGET(req:Request,res:Response) {
 export async function tasksSingleGET(req:Request,res:Response) {
     const { authorization } = req.headers
     const {id}:any = req.params
+    console.log(id)
     const taskId = Number(id)
     
     if(isNaN(taskId)){

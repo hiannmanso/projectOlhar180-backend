@@ -10,6 +10,6 @@ import { signInSchema } from '../schemas/signin.schema'
 const authRouter = Router()
 
 authRouter.post('/signup', validateSchema(signUpSchema), signUpPOST)
-authRouter.get('/signin', validateSchema(signInSchema), signInGET)
+authRouter.post('/signin', signInGET)
 
 export default authRouter

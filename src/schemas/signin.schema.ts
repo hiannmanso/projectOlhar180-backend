@@ -1,7 +1,6 @@
 import Joi from 'joi'
-import { user } from '../interfaces/auth.interface'
 
-export const signInSchema = Joi.object<user>({
+export const signInSchema = Joi.object({
 	email: Joi.string().email().required(),
 	password: Joi.string()
 		.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
