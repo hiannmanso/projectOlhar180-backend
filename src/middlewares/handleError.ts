@@ -7,7 +7,7 @@ export function handleError(
 	next: NextFunction
 ) {
 	console.log(error)
-	if (error.status && error.message) {
+	if (error) {
 		return res.status(error.status).send(error.message)
 	}
 	res.status(500)
