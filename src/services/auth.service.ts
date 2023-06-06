@@ -6,14 +6,14 @@ import { User } from '../interfaces/auth.interface'
 export async function signUp(
 	data:User
 ) {
-	// const checkEmailIsValid = await authRepository.getByEmail(data.email)
+	const checkEmailIsValid = await authRepository.getByEmail(data.email)
 	console.log(data)
-	// if (checkEmailIsValid) {
-	// 	throw {
-	// 		status: 401,
-	// 		message: `This email is already in use.`,
-	// 	}
-	// }
+	if (checkEmailIsValid) {
+		throw {
+			status: 401,
+			message: `This email is already in use.`,
+		}
+	}
 
 	await authRepository.insert(
 		data.email,
@@ -23,13 +23,13 @@ export async function signUp(
 }
 
 export async function signIN(email: string, password: string) {
-	// const checkEmailIsValid = await authRepository.getByEmail(email)
-	// if (!checkEmailIsValid) {
-	// 	throw {
-	// 		status: 404,
-	// 		message: `This email  is not registered.`,
-	// 	}
-	// }
+	const checkEmailIsValid = await authRepository.getByEmail(email)
+	if (!checkEmailIsValid) {
+		throw {
+			status: 404,
+			message: `This email  is not registered.`,
+		}
+	}
 	if (!bcrypt.compareSync(password, checkEmailIsValid.password)) {
 		throw {
 			status: 406,
